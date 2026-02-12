@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #0b1220;
+  color: white;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 18px 0;
+  z-index: 999;
+  transition: 0.3s ease;
+}
+
+nav.scrolled {
+  background: rgba(10, 16, 30, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.nav-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: #34d399;
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.nav-links a {
+  opacity: 0.85;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  opacity: 1;
+  color: #34d399;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(52, 211, 153, 0.18), transparent 55%),
+              radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.18), transparent 55%);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.hero h1 span {
+  color: #34d399;
+}
+
+.hero p {
+  font-size: 16px;
+  opacity: 0.85;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.btn-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn.primary {
+  background: #34d399;
+  color: #06101d;
+}
+
+.btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(52, 211, 153, 0.35);
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.btn.secondary:hover {
+  transform: translateY(-3px);
+  border-color: rgba(52, 211, 153, 0.7);
+}
+
+/* SECTION */
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  opacity: 0.7;
+  margin-bottom: 28px;
+}
+
+/* CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 18px;
+  transition: 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 10%, rgba(52, 211, 153, 0.12), transparent 55%);
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(52, 211, 153, 0.25);
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.card p {
+  opacity: 0.75;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* DESTINATION TAG */
+.tag {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: rgba(52, 211, 153, 0.14);
+  color: #34d399;
+}
+
+/* CONTACT */
+.form-box {
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 22px;
+}
+
+form {
+  display: grid;
+  gap: 14px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  outline: none;
+}
+
+textarea {
+  min-height: 130px;
+  resize: none;
+}
+
+input:focus, textarea:focus {
+  border-color: rgba(52, 211, 153, 0.6);
+}
+
+/* FOOTER */
+footer {
+  padding: 25px 0;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+/* ANIMATION (REVEAL) */
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+}
