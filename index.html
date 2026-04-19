@@ -6,33 +6,29 @@
   <title>Travel Adventure | Home</title>
   <link rel="stylesheet" href="style.css" />
   
-<!-- Splitlab Orchestrator -->
-<script
-  src="https://staging-svc.mvtlab.io/scripts/engine.js"
-  data-project-key="4Hnjk-cO6q7cDTwND3Pe8g"
-  data-mvt="engine"
-  data-flicker-class="abtest-hidden"
-  async
-></script>
+<!-- 1. Preconnect to CDN origin (saves DNS + TLS time) -->
+<link rel="preconnect" href="https://staging-svc.mvtlab.io/" crossorigin>
 
-<!-- Anti-flickering script -->
+<!-- 2. Preload the engine script (browser fetches it ASAP, before any JS runs) -->
+<link rel="preload" href="https://staging-svc.mvtlab.io/scripts/engine.js" as="script" crossorigin>
 
+<!-- Anti-flicker: hide body immediately, auto-unhide after timeout -->
 <script>
-  var timeout = 3000; // Timeout value to remove the flicker (in milliseconds)
-  !(function (h, i, d, e) {
-    var t,
-      n = h.createElement("style");
-    (n.id = e),
-      (n.innerHTML = "body{opacity:0}"),
-      h.head.appendChild(n),
-      (t = d),
-      (i.rmfk = function () {
-        var t = h.getElementById(e);
-        t && t.parentNode.removeChild(t);
-      }),
-      setTimeout(i.rmfk, t);
-  })(document, window, timeout, "abhide");
+  !function(d,w,t,id){
+    var s=d.createElement("style");
+    s.id=id;s.innerHTML="body{opacity:0!important}";
+    d.head.appendChild(s);
+    w.rmfk=function(){var e=d.getElementById(id);e&&e.remove()};
+    setTimeout(w.rmfk,t);
+  }(document,window,1500,"abhide");
 </script>
+
+<!-- 3. Load engine synchronously (render-blocking on purpose — it's preloaded so it's fast) -->
+<script src="https://staging-svc.mvtlab.io/scripts/engine.js"
+        data-mvt="engine"
+        data-project-key="aebySB-I43pNE1yeDIis9w"
+        data-flicker-class="abtest-hidden"
+        crossorigin="anonymous"></script>
 
 
 </head>
